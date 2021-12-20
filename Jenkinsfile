@@ -6,11 +6,11 @@ pipeline {
 
         stage("build"){
             
-            // when{
-            //     expression{
-            //         CODE_CHANGES == TRUE
-            //     }
-            // }
+            when{
+                expression{
+                    CODE_CHANGES == TRUE
+                }
+            }
 
             steps{
                 echo "Building the application"
