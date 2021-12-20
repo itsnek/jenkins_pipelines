@@ -6,6 +6,12 @@ pipeline {
 
         stage("build"){
             
+            when{
+                expression{
+                    CODE_CHANGES == TRUE
+                }
+            }
+
             steps{
                 echo "Building the application"
             }
@@ -14,6 +20,12 @@ pipeline {
         
         stage("test"){
             
+            when{
+                expression{
+                    BRANCH_NAME == 'dev'
+                }
+            }
+
             steps{
                 echo "Testing the application"
             }
@@ -26,6 +38,18 @@ pipeline {
                 echo "Deploying the application"
             }
             
+        }
+
+    }
+
+    post{
+
+        always{
+            echo "Hi. I'm Nikos!"
+        }
+
+        failure {
+            exho "Something went wrong!"
         }
 
     }
