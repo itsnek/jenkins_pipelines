@@ -8,7 +8,7 @@ pipeline {
     }
 
     tools{
-        maven
+        maven 'Maven'
     }
 
     parameters{
@@ -22,8 +22,8 @@ pipeline {
         stage("build"){
             
             when{
-                expression:{
-                    //CODE_CHANGES == TRUE
+                expression{
+                    CODE_CHANGES == TRUE
                 }
             }
 
