@@ -60,11 +60,11 @@ pipeline {
                 echo "Deploying with "
                 // sh ('echo ${SERVER_CREDENTIALS}')
                 withCredentials{[
-                    usernamePassword(credentials: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PSWD')
+                    usernamePassword(credentialsId: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PSWD')
                 ]}
-                // {
-                //     sh 'use $USER $PSWD'
-                // }
+                {
+                    sh 'use $USER $PSWD'
+                }
 
             }
             
