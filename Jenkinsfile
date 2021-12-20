@@ -1,4 +1,6 @@
 // CODE_CHANGES = getGitChanges() // create a groovy script that checks the git changes
+def gv
+
 pipeline {
 
     agent any 
@@ -47,7 +49,9 @@ pipeline {
             }
 
             steps{
-                gv.buildFun()
+                script{
+                    gv.buildFun()
+                }
             }
             
         }
@@ -61,7 +65,9 @@ pipeline {
             }
 
             steps{
-                gv.testFun()
+                script{
+                    gv.testFun()
+                }
             }
             
         }
@@ -69,7 +75,9 @@ pipeline {
         stage("deploy"){
             
             steps{
-                dv.deployFun()
+                script{
+                    gv.deployFun()
+                }
             }
             
         }
