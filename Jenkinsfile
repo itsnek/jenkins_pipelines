@@ -1,3 +1,4 @@
+// CODE_CHANGES = getGitChanges() // create a groovy script that checks the git changes
 pipeline {
 
     agent any 
@@ -23,7 +24,8 @@ pipeline {
             
             when{
                 expression{
-                    CODE_CHANGES == TRUE
+                    BRANCH_NAME = 'main'
+                    //CODE_CHANGES == TRUE
                 }
             }
 
