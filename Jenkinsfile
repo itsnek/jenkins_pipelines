@@ -2,13 +2,13 @@ pipeline {
 
     agent any 
 
-    enviroment {
+    environment{
         NEW_VERSION = '1.1.1'
         SERVER_CREDENTIALS = credentials('server-credentials')
     }
 
     tools{
-        maven 'Maven'
+        maven
     }
 
     parameters{
@@ -22,7 +22,7 @@ pipeline {
         stage("build"){
             
             when{
-                expression{
+                expression:{
                     //CODE_CHANGES == TRUE
                 }
             }
