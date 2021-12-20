@@ -32,9 +32,10 @@ pipeline {
             }
 
             steps{
-               script{
-                   gv = load "script.groovy"
-               }
+                script{
+                    gv = load "script.groovy"
+                    sh('echo $gv')
+                }
             }
             
         }
