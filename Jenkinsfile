@@ -5,7 +5,7 @@ pipeline {
 
     environment{
         NEW_VERSION = '1.1.1'
-        SERVER_CREDENTIALS = credentials('server-credentials')
+        // SERVER_CREDENTIALS = credentials('server-credentials')
     }
 
     tools{
@@ -58,12 +58,12 @@ pipeline {
                 echo "Deploying the application"
                 echo "Deploying with ${params.VERSION} ."
                 echo "Deploying with "
-                sh ("${SERVER_CREDENTIALS}")
-                // with credentials{[
-                //     usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PSWD)
-                // ]}{
-                //     sh "shell commands ${USER} ${PSWD}"
-                // }
+                // sh ('echo ${SERVER_CREDENTIALS}')
+                with credentials{[
+                    usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PSWD)
+                ]}{
+                    sh "shell commands ${USER} ${PSWD}"
+                }
 
             }
             
