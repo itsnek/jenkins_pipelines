@@ -59,11 +59,11 @@ pipeline {
                 echo "Deploying with ${params.VERSION} ."
                 echo "Deploying with "
                 sh ('echo ${SERVER_CREDENTIALS}')
-                with credentials{[
-                    usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PSWD)
-                ]}{
-                    sh "shell commands ${USER} ${PSWD}"
-                }
+                // with credentials{[
+                //     usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PSWD)
+                // ]}{
+                //     sh "shell commands ${USER} ${PSWD}"
+                // }
 
             }
             
