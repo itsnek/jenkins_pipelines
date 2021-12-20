@@ -26,3 +26,5 @@ def deployFun(){
     //     //sh 'use $USER $PSWD'
     // }
 }
+
+return this
