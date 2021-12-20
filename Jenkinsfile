@@ -76,7 +76,7 @@ pipeline {
         }
 
         failure {
-            exho "Something went wrong!"
+            echo "Something went wrong!"
         }
 
     }
