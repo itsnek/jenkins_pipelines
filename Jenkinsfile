@@ -14,11 +14,28 @@ pipeline {
 
     parameters{
         //string(name: 'VERSION', defaultValue: '', description: 'my first version of Jenkinsfile to deploy')
-        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'my first version of Jenkinsfile to deploy')
+        choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], defaultValue: 'latest', description: 'my first version of Jenkinsfile to deploy')
         booleanParam(name: 'executeTests', defaultValue: true, description: 'my first version of Jenkinsfile to deploy')
     }
 
     stages {
+
+        stage("init"){
+            
+            when{
+                expression{
+                    BRANCH_NAME == 'main'
+                    //CODE_CHANGES == TRUE
+                }
+            }
+
+            steps{
+               script{
+                   gv = load "script.groovy"
+               }
+            }
+            
+        }
 
         stage("build"){
             
@@ -30,9 +47,7 @@ pipeline {
             }
 
             steps{
-                echo "Building the application"
-                echo "Building version ${NEW_VERSION} ."
-                //sh("mvn install")
+                gv.buildFun()
             }
             
         }
@@ -41,13 +56,12 @@ pipeline {
             
             when{
                 expression{
-                    //BRANCH_NAME == 'dev'
                     params.executeTests
                 }
             }
 
             steps{
-                echo "Testing the application"
+                gv.testFun()
             }
             
         }
@@ -55,23 +69,7 @@ pipeline {
         stage("deploy"){
             
             steps{
-                echo "Deploying the application"
-                echo "Deploying with ${params.VERSION} ."
-                echo "Deploying with "
-                sh ('echo $SERVER_CREDENTIALS')
-                // withCredentials{[
-                //     usernamePassword(credentialsId: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PSWD')
-                // ]}
-                // {
-                //     //sh 'use $USER $PSWD'
-                // }
-                withCredentials{[
-                    usernamePassword(credentialsId: 'server-cred', variable: 'USERPASS')
-                ]}
-                {
-                    sh 'echo $USERPASS'
-                }
-
+                dv.deployFun()
             }
             
         }
