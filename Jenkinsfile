@@ -63,7 +63,8 @@ pipeline {
                     usernamePassword(credentialsId: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PSWD')
                 ]}
                 {
-                    sh 'use $USER $PSWD'
+                    echo "Hello"
+                    //sh 'use $USER $PSWD'
                 }
 
             }
