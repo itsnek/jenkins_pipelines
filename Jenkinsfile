@@ -24,7 +24,7 @@ pipeline {
             
             when{
                 expression{
-                    BRANCH_NAME = 'main'
+                    BRANCH_NAME == 'main'
                     //CODE_CHANGES == TRUE
                 }
             }
@@ -58,7 +58,7 @@ pipeline {
                 echo "Deploying the application"
                 echo "Deploying with ${params.VERSION} ."
                 echo "Deploying with "
-                sh "${SERVER_CREDENTIALS}"
+                sh ('echo ${SERVER_CREDENTIALS}')
                 with credentials{[
                     usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PSWD)
                 ]}{
