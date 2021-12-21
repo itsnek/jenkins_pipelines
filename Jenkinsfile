@@ -10,9 +10,9 @@ pipeline {
         SERVER_CREDENTIALS = credentials('server-credentials')
     }
 
-    // tools{
-    //     maven 'Maven'
-    // }
+    tools{
+        maven 'maven-3.8.4'
+    }
 
     parameters{
         //string(name: 'VERSION', defaultValue: '', description: 'my first version of Jenkinsfile to deploy')
