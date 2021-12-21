@@ -9,7 +9,7 @@ def buildFun(){
     sh 'mvn --help'
 
     nodejs('NodeJS'){
-        sh 'sudo chown -R 1001:0 "/.npm && yarn install'
+        sh 'sudo chown -R 1001:0 "/.npm" && yarn --help'
     }
 
 }
