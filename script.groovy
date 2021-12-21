@@ -2,7 +2,7 @@ def buildFun(){
     echo "Building the application"
     echo "Building version ${NEW_VERSION} ."
 
-    maven('Maven'){
+    maven('maven-3.8.4'){
         sh 'mvn install'
     }
 
