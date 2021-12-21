@@ -7,11 +7,11 @@ def buildFun(){
     // }
 
     sh 'mvn --help'
+    sh 'yarn --help'
 
-    nodejs('NodeJS'){
-        // sh 'chown -R 1001:0 "/.npm"'
-        sh 'yarn --help'
-    }
+    // nodejs('NodeJS'){
+    //     sh 'yarn --help'
+    // }
 
 }
 
