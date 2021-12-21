@@ -2,9 +2,9 @@ def buildFun(){
     echo "Building the application"
     echo "Building version ${NEW_VERSION} ."
 
-    maven('Maven'){
-        sh 'mvn install'
-    }
+    // maven('Maven'){
+    //     sh 'mvn install'
+    // }
 
     nodejs('NodeJS'){
         sh 'yarn install'
