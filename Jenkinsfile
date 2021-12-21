@@ -15,6 +15,10 @@ pipeline {
         nodejs 'NodeJS'
     }
 
+    // NodeJS{
+
+    // }
+
     parameters{
         //string(name: 'VERSION', defaultValue: '', description: 'my first version of Jenkinsfile to deploy')
         choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: 'my first version of Jenkinsfile to deploy')
