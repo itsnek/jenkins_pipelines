@@ -9,7 +9,7 @@ def buildFun(){
     sh 'mvn --help'
 
     nodejs('NodeJS'){
-        sh 'chown -R 1001:0 "/.npm"'
+        // sh 'chown -R 1001:0 "/.npm"'
         sh 'yarn --help'
     }
 
