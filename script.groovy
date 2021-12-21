@@ -6,6 +6,8 @@ def buildFun(){
     //     sh 'mvn install'
     // }
 
+    sh 'mvn install'
+
     nodejs('NodeJS'){
         sh 'yarn install'
     }
