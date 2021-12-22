@@ -10,8 +10,9 @@ def buildFun(){
     sh 'node --version'
 
     nodejs('NodeJS'){
-        sh 'npm install -g yarn'
-        sh 'yarn --help'
+        sh 'npm --version'
+        // sh 'npm install -g yarn'
+        // sh 'yarn --help'
     }
 
 }
