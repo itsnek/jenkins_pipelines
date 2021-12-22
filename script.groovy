@@ -15,7 +15,7 @@ def buildFun(){
     nodejs('NodeJS'){
         
         withEnv(['PATH+NODE=/bitnami/jenkins/home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/NodeJS']) {
-            sh '/lib/node_modules/npm/bin/npm install -g yarn'
+            sh 'npm install -g yarn'
             sh 'yarn --help'
         }
 
