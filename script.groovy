@@ -13,7 +13,7 @@ def buildFun(){
     // sh 'yarn install'
 
     nodejs('NodeJS'){
-        sh './bin/npm install -g yarn'
+        sh './NodeJS/bin/npm install -g yarn'
 
         // withEnv(['PATH+NODE=/bitnami/jenkins/home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/NodeJS']) {
         //     sh 'npm install -g yarn'
