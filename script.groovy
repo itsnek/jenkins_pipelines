@@ -10,15 +10,14 @@ def buildFun(){
     sh 'node --version'
     sh 'npm root -g'
     // sh 'npm install -g yarn'
-    sh 'yarn install'
+    // sh 'yarn install'
 
     nodejs('NodeJS'){
-
         
-        // withEnv(['PATH+NODE=/bitnami/jenkins/home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/NodeJS/lib/node_modules/npm/bin']) {
-        //     sh 'npm install -g yarn'
-        //     sh 'yarn --help'
-        // }
+        withEnv(['PATH+NODE=/bitnami/jenkins/home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/NodeJS']) {
+            sh '/lib/node_modules/npm/bin/npm install -g yarn'
+            sh 'yarn --help'
+        }
 
     }
 
