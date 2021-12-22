@@ -8,7 +8,8 @@ def buildFun(){
 
     sh 'mvn --help'
     sh 'node --version'
-    // sh 'yarn --help'
+    sh 'npm install -g yarn'
+    sh 'yarn --help'
 
     // nodejs('NodeJS'){
     //     sh 'yarn --help'
