@@ -9,7 +9,7 @@ def buildFun(){
     sh 'mvn --help'
     sh 'node --version'
     sh 'npm root -g'
-    sh 'node root -g'
+    // sh 'node root -g'
 
     nodejs('NodeJS'){
         sh 'npm --version'
