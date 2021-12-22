@@ -9,11 +9,11 @@ def buildFun(){
     sh 'mvn --help'
     sh 'node --version'
     sh 'npm root -g'
-    sh 'npm install -g yarn'
+    // sh 'npm install -g yarn'
     // sh 'yarn install'
 
     nodejs('NodeJS'){
-        sh 'lib//node_modules/npm/bin/npm install -g yarn'
+        sh '/lib/node_modules/npm/bin/npm install -g yarn'
 
         // withEnv(['PATH+NODE=/bitnami/jenkins/home/tools/jenkins.plugins.nodejs.tools.NodeJSInstallation/NodeJS']) {
         //     sh 'npm install -g yarn'
